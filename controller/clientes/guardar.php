@@ -8,8 +8,9 @@ require '../../modelos/cliente.php';
 
 $_POST['cli_nombres'] = htmlspecialchars($_POST['cli_nombres']);
 $_POST['cli_apellidos'] = htmlspecialchars($_POST['cli_apellidos']);
-$_POST['cli_telefono'] = filter_var($_POST['cli_telefono'], FILTER_SANITIZE_NUMBER_INT);
 $_POST['cli_nit'] = filter_var($_POST['cli_nit'], FILTER_SANITIZE_NUMBER_INT);
+$_POST['cli_telefono'] = filter_var($_POST['cli_telefono'], FILTER_SANITIZE_NUMBER_INT);
+
 
 try{
 
@@ -43,6 +44,5 @@ $colores =['danger', 'success'];
 
 
 <?php
-echo $resultado['mensaje'];
 include_once '../../views/templates/footer.php';
 ?>

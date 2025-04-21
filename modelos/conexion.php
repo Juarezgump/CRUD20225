@@ -28,23 +28,25 @@ abstract class Conexion{
         return $datos;
     }
 
-    public function ejecutar($sql){
+    public function ejecutar($sql, $params = []){
         $conexion = self::conectar();
         $sentencia = $conexion->prepare($sql);
-        $resultado = $sentencia->execute();
+        $resultado = $sentencia->execute($params);
         $idInsertado = $conexion->lastInsertId();
         self::$conexion = null;
+
         return [
             "resultado" => $resultado,
             "id" => $idInsertado
         ];
     }
 
-    public function servir($sql)
+    public function servir($sql, $params = [])
     {
         $conexion = self::conectar();
         $sentencia = $conexion->prepare($sql);
-        $sentencia->execute();
+        $sentencia->execute($params);
+        
         $data = $sentencia->fetchAll(PDO::FETCH_ASSOC);
 
         $datos = [];
