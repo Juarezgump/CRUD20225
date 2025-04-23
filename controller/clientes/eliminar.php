@@ -1,8 +1,8 @@
 <?php
 
 require "../../modelos/cliente.php";
-include_once '../templates/header.php';
-$_GET['cli_codigo'] = filter_var(base64_decode($_GET['cli_codigo']), FILTER_SANITIZE_NUMBER_INT);
+include_once '../../views/templates/header.php';
+$_GET['cli_id'] = filter_var(base64_decode($_GET['cli_id']), FILTER_SANITIZE_NUMBER_INT);
 
 $Eliminar = new Cliente($_GET);
 
@@ -32,7 +32,7 @@ try {
 
 $alertas = ['danger', 'success', 'warning'];
   
-include_once '../../vistas/templates/header.php'; ?>
+include_once '../../views/templates/header.php'; ?>
 
 <div class="row justify-content-center">
     <div class="col-lg-6 alert alert-<?=$alertas[$resultado['codigo']] ?>" role="alert">
@@ -41,9 +41,9 @@ include_once '../../vistas/templates/header.php'; ?>
 </div>
 <div class="row justify-content-center">
     <div class="col-lg-6">
-        <a href="../../vistas/clientes/buscar.php" class="btn btn-primary w-100">Regresar</a>
+        <a href="../../views/clientes/buscar.php" class="btn btn-primary w-100">Regresar</a>
     </div>
 </div>
 
 
-<?php include_once '../../vistas/templates/footer.php'; ?>
+<?php include_once '../../views/templates/footer.php'; ?>

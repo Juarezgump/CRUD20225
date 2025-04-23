@@ -4,7 +4,7 @@
 // error_reporting(E_ALL);
 
 
-require '../../modelos/cliente.php';
+require '../../modelos/Cliente.php';
 
 // consulta
 try {
@@ -12,9 +12,8 @@ try {
     $telefono = $_GET['cli_telefono'];
     $_GET['cli_nombres'] = htmlspecialchars($_GET['cli_nombres']);
     $_GET['cli_apellidos'] = htmlspecialchars($_GET['cli_apellidos']);
-    $_GET['cli_telefono'] = filter_var($telefono, FILTER_VALIDATE_INT);
     $_GET['cli_nit'] = filter_var($nit, FILTER_VALIDATE_INT);
-    
+    $_GET['cli_telefono'] = filter_var($telefono, FILTER_VALIDATE_INT);
 
     $Cli_Consulta = new Cliente($_GET);
     $cliente = $Cli_Consulta->buscar();
@@ -45,6 +44,7 @@ include_once '../../views/templates/header.php'; ?>
     </div>
 </div>
 
+<!-- Se imprime los resultados -->
 <h1 class="text-center">Clientes Ingresados </h1>
     <div class="row justify-content-center">
         <div class="col-lg-10">
@@ -73,8 +73,8 @@ include_once '../../views/templates/header.php'; ?>
                                         Acciones
                                     </button>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="../../vistas/clientes/ModificarCliente.php?cli_codigo=<?= base64_encode($opcion['cli_codigo'])?>"><i class="bi bi-pencil-square me-2"></i>Modificar</a></li>
-                                        <li><a class="dropdown-item" href="eliminar.php?cli_codigo=<?= base64_encode($opcion['cli_codigo'])?>"><i class="bi bi-trash me-2"></i>Eliminar</a></li>
+                                    <li><a class="dropdown-item" href="../../views/clientes/ModificarCliente.php?cli_id=<?= base64_encode($opcion['cli_id'])?>"><i class="bi bi-pencil-square me-2"></i>Modificar</a></li>
+                                        <li><a class="dropdown-item" href="eliminar.php?cli_id=<?= base64_encode($opcion['cli_id'])?>"><i class="bi bi-trash me-2"></i>Eliminar</a></li>
                                     </ul>
                                 </div>
                                 </td>
@@ -82,7 +82,7 @@ include_once '../../views/templates/header.php'; ?>
                         <?php endforeach ?>
                     <?php else : ?>
                         <tr>
-                            <td colspan="4">No hay clientes registrados</td>
+                            <td colspan="4">No hay productos registrados</td>
                         </tr>  
                     <?php endif ?>
                 </tbody>
@@ -91,4 +91,4 @@ include_once '../../views/templates/header.php'; ?>
         </div>        
     </div>        
 
-<?php include_once '../../views/templates/footer.php'; ?>
+<?php include_once '../crud_2025/views/templates/footer.php'; ?>

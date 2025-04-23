@@ -18,6 +18,9 @@
             <li><a class="dropdown-item" href="/CRUD20225/views/clientes/buscar.php"><i class="bi bi-search me-2"></i>Buscar</a></li>
           </ul>
         </li>
+      </ul>
     </div>
   </div>
 </nav>
+
+<div class="container-fluid" style="margin-top: 70px; padding-top: 20px;">
