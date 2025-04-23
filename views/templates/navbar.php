@@ -14,7 +14,7 @@
           <i class="bi bi-person-bounding-box me-2"></i>Clientes
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="/CRUD_CLIENTES/vistas/clientes/index.php"><i class="bi bi-plus-circle me-2"></i>Crear</a></li>
+            <li><a class="dropdown-item" href="/CRUD20225/views/clientes/index.php"><i class="bi bi-plus-circle me-2"></i>Crear</a></li>
             <li><a class="dropdown-item" href="/CRUD20225/views/clientes/buscar.php"><i class="bi bi-search me-2"></i>Buscar</a></li>
           </ul>
         </li>
